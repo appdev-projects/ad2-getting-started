@@ -8,7 +8,7 @@ We collected most of the Ruby and Rails classes/methods/keywords that we used in
 
 https://chapters.firstdraft.com/chapters/774
 
-Skim through for a refresher and click into Full Explanations for more depth. Ask questions on Piazza about anything that’s fuzzy.
+Skim through for a refresher and click into Full Explanations for more depth. Ask questions about anything that’s fuzzy.
 
 ## Setup
 
