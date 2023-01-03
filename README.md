@@ -16,9 +16,21 @@ Create a Gitpod workspace based on this repository.
 
 In AppDev 1, we used the base-rails repo when starting a project from scratch; but from now on, we'll use [vanilla-rails](https://github.com/appdev-projects/vanilla-rails). Other than that, the steps in [this Chapter for starting a new app from scratch](https://chapters.firstdraft.com/chapters/851) still hold.
 
+## Back it up
+
+Let's review what we learned in AD1. Run the following:
+
+```
+rails generate draft:resource movie title:string description:text released:boolean
+```
+
+[The `draft:resource` generator](https://chapters.firstdraft.com/chapters/773) automates writing the code that we spent 6 painstaking weeks learning how to write in AD1. It creates a fully-function database-backed CRUD web resource.
+
+`rails db:migrate`, visit `/movies`, click around, and examine the code that was generated (`config/routes.rb`, `app/controllers/books_controller.rb`, etc). Think of questions about anything and everything that looks fuzzy.
+
 ## The goal
 
-To begin with, let's get a sneak peek at our goal for the first 2-3 weeks. Try running the following command:
+Let's get a sneak peek at our goal for the first 2-3 weeks of AD2. Try running the following command:
 
 ```
 rails generate scaffold book title:string description:text released:boolean
@@ -26,21 +38,9 @@ rails generate scaffold book title:string description:text released:boolean
 
 The `scaffold` generator is very similar to the `draft:generator`; but it's built in to Rails, and it exemplifies the kind of code that we need to learn to read and write in order to join the community of professional Rails developers.
 
-`rails db:migrate`, visit `/books`, click around, and examine the code that was generated (`config/routes.rb`, `app/controllers/books_controller.rb`, etc).
+As before, `rails db:migrate`, visit `/books`, click around, and examine the code that was generated (`config/routes.rb`, `app/controllers/books_controller.rb`, etc).
 
 Phew! There's a lot of mysterious new stuff. We're going to demystify it all over the next few weeks, step by step.
-
-## Back it up
-
-Let's now go back and review the code we learned in AD1. Run the following:
-
-```
-rails generate draft:resource movie title:string description:text released:boolean
-```
-
-As before, `rails db:migrate`, visit `/movies`, click around, and examine the code that was generated (`config/routes.rb`, `app/controllers/books_controller.rb`, etc).
-
-Think of questions about anything and everything that looks fuzzy.
 
 ## Start the evolution
 
