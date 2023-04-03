@@ -3,7 +3,7 @@
 {
   "name": "Container",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "bpurinton/ad2-getting-started-codespace-march2023",
+  "image": "bpurinton/ad2-getting-started-codespace-march2023-specs",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
