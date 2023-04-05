@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "The /movies page" do
   before do
-    visit "/movies"
+    visit movies_path
   end
 
   it "can be visited", points: 1 do
@@ -11,14 +11,14 @@ describe "The /movies page" do
   end
 
   it "has a link to add a movie", points: 1 do
-    expect(page).to have_link('Add a new movie', href: "movies/new"),
+    expect(page).to have_link('Add a new movie', href: movies_new_path),
       "Expected /movies to have an 'Add a new movie' link to '/movies/new'."
   end
 end
 
 describe "The /movies/new page" do
   before do
-    visit "movies/new"
+    visit movies_new_path
   end
 
   it "can be visited", points: 1 do
@@ -62,5 +62,30 @@ describe "The movie details page" do
   it "has a link to delete the movie with a DELETE request", points: 2 do
     expect(page).to have_selector("a[href='/movies/#{ @movie.id }'][data-method='delete']", text: 'Delete movie'),
       "Expected /movies/ID to have 'Delete movie' link with the proper data-method='delete'."
+  end
+end
+
+describe "The movie edit page" do
+  before do
+    @movie = Movie.create(
+      title: "My title",
+      description: "My description"
+    )
+    visit "/movies/#{@movie.id}/edit"
+  end
+
+  it "can be visited", points: 1 do
+    expect(page.status_code).to be(200),
+      "Expected to visit /movies/ID/edit successfully."
+  end
+
+  it "has a form", points: 1 do
+    expect(page).to have_selector("form[action='/movies/#{@movie.id}'][method='post']"),
+      "Expected /movies/ID/edit to have a form with action='/movies/ID' and method='post'."
+  end
+
+  it "has a hidden patch input", points: 2 do
+    expect(page).to have_selector("input[name='_method'][value='patch']", visible: false),
+      "Expected the edit movie form to have an input field of type='hidden' with name='_method' and value='patch'."
   end
 end
