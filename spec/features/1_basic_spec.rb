@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe "The /movies page" do
   before do
-    visit movies_path
+    visit "/movies"
   end
 
   it "can be visited", points: 1 do
@@ -11,14 +11,14 @@ describe "The /movies page" do
   end
 
   it "has a link to add a movie", points: 1 do
-    expect(page).to have_link('Add a new movie', href: movies_new_path),
+    expect(page).to have_link('Add a new movie', href: "/movies/new"),
       "Expected /movies to have an 'Add a new movie' link to '/movies/new'."
   end
 end
 
 describe "The /movies/new page" do
   before do
-    visit movies_new_path
+    visit "/movies/new"
   end
 
   it "can be visited", points: 1 do
