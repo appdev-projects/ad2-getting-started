@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe "The /movies page" do
-
   it "can be visited", points: 1 do
     visit "/movies"
 
@@ -18,7 +17,6 @@ describe "The /movies page" do
 end
 
 describe "The /movies/new page" do
-
   it "can be visited", points: 1 do
     visit "/movies/new"
 
@@ -104,4 +102,3 @@ describe "The movie edit page" do
       "Expected the edit movie form to have an input field of type='hidden' with name='_method' and value='patch'."
   end
 end
-
