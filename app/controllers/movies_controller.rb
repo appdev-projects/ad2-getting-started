@@ -12,7 +12,10 @@ class MoviesController < ApplicationController
 
     matching_movies = Movie.where({ :id => the_id })
 
-    @the_movie = matching_movies.at(0)
+    # @the_movie = matching_movies.at(0)
+
+    @the_movie = matching_movies[0]
+    @the_movie = matching_movies.first
 
     render({ :template => "movies/show.html.erb" })
   end
@@ -41,7 +44,7 @@ class MoviesController < ApplicationController
 
     if the_movie.valid?
       the_movie.save
-      redirect_to("/movies/#{the_movie.id}", { :notice => "Movie updated successfully."} )
+      redirect_to("/movies/#{the_movie.id}", { :notice => "Movie updated successfully." })
     else
       redirect_to("/movies/#{the_movie.id}", { :alert => the_movie.errors.full_messages.to_sentence })
     end
@@ -53,6 +56,6 @@ class MoviesController < ApplicationController
 
     the_movie.destroy
 
-    redirect_to("/movies", { :notice => "Movie deleted successfully."} )
+    redirect_to("/movies", { :notice => "Movie deleted successfully." })
   end
 end
