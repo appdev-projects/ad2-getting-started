@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      List of all movies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new movie
+    </h2>
+
+    <form action="/insert_movie" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="released_box" name="query_released" value="1">
+
+        <label for="released_box">Released</label>
+      </div>
+
+      <button>
+        Create movie
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Released
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_movies.each do |a_movie| %>
+      <tr>
+        <td>
+          <%= a_movie.id %>
+        </td>
+
+        <td>
+          <%= a_movie.title %>
+        </td>
+
+        <td>
+          <%= a_movie.description %>
+        </td>
+
+        <td>
+          <%= a_movie.released %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_movie.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_movie.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/movies/<%= a_movie.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Movie #<%= @the_movie.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/movies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_movie/<%= @the_movie.id %>">
+          Delete movie
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @the_movie.title %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_movie.description %>
+      </dd>
+
+      <dt>
+        Released
+      </dt>
+      <dd>
+        <%= @the_movie.released %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_movie.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit movie
+    </h2>
+
+    <form action="/modify_movie/<%= @the_movie.id %>"  method="post" >
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_movie.title %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_movie.description %></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="released_box" name="query_released" value="1" <%= "checked" if @the_movie.released %>>
+
+        <label for="released_box">
+            Released
+        </label>
+      </div>
+
+      <button>
+        Update movie
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
