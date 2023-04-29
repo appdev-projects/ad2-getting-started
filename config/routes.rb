@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Routes for the Movie resource:
 
   # CREATE
-  post("/insert_movie", { :controller => "movies", :action => "create" })
+  post("/movies", { :controller => "movies", :action => "create" })
           
   # READ
   get("/movies", { :controller => "movies", :action => "index" })
@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_movie/:path_id", { :controller => "movies", :action => "update" })
+  patch("/movies/:path_id", { :controller => "movies", :action => "update" })
   
   # DELETE
-  get("/delete_movie/:path_id", { :controller => "movies", :action => "destroy" })
+  delete("/movies/:path_id", { :controller => "movies", :action => "destroy" })
 
   #------------------------------
 
