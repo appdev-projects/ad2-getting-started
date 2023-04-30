@@ -1,4 +1,9 @@
 class MoviesController < ApplicationController
+
+  def new
+    render template: "movies/new.html.erb"
+  end
+
   def index
     matching_movies = Movie.all
 
