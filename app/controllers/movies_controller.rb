@@ -4,6 +4,13 @@ class MoviesController < ApplicationController
     render template: "movies/new.html.erb"
   end
 
+  def edit
+    the_id = params.fetch(:id)
+    @the_movie = Movie.where(id: the_id).first
+
+    render template: "movies/edit.html.erb"
+  end
+
   def index
     matching_movies = Movie.all
 
