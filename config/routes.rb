@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :books
   # Routes for the Movie resource:
 
   # CREATE

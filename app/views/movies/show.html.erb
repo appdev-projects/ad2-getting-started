@@ -15,6 +15,7 @@
         <a href="/movies/<%= @the_movie.id %>" data-method="delete">
           Delete movie
         </a>
+        <%= button_to "Delete movie", "/movies/#{@the_movie.id}", method: :delete %>
       </div>
     </div>
 
