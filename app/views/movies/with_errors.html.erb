@@ -1,7 +1,8 @@
-   <h2>
+<h2>
       Add a new movie
     </h2>
- 
+ <%= @the_movie.errors.full_messages %>
+
     <form action="/movies" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
@@ -10,7 +11,7 @@
           Title
         </label>
 
-        <input type="text" id="title_box" name="query_title">
+        <input type="text" id="title_box" name="query_title" value="<%= @the_movie.title %>">
       </div>
 
       <div>
@@ -18,7 +19,8 @@
           Description
         </label>
 
-        <textarea id="description_box" name="query_description" rows="3"></textarea>
+        <textarea id="description_box" name="query_description" rows="3">
+        <%= @the_movie.description %></textarea>
       </div>
 
       <div>
