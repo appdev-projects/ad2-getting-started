@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem "draft_generators", :github => "firstdraft/draft_generators"
+
 gem "grade_runner", github: "firstdraft/grade_runner"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
@@ -82,4 +84,5 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'skylight'
   gem 'web_git', github: 'firstdraft/web_git'
+  gem "rails_db", "~> 2.4"
 end

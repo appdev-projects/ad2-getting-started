@@ -1,0 +1,37 @@
+<h2>
+      Editing Movie
+    </h2>
+
+    <form action="/movies/<%= @the_movie.id %>"  method="post" >
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      
+      <input type="hidden" name="_method" value="patch">
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title" value="<%= @the_movie.title %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_movie.description %></textarea>
+      </div>
+
+      <div>
+        <input type="checkbox" id="released_box" name="query_released" value="1" <%= "checked" if @the_movie.released %>>
+
+        <label for="released_box">
+            Released
+        </label>
+      </div>
+
+      <button>
+        Update movie
+      </button>
+    </form>
