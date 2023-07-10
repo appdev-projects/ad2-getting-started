@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
   def new
-    render template: "movies/new.html.erb"
+    @the_movie = Movie.new
+    
+    render template: "movies/new"
   end
 
   def edit
@@ -38,7 +40,7 @@ class MoviesController < ApplicationController
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
 
-      render template: "movies/with_errors"
+      render template: "movies/new"
     end
   end
 
