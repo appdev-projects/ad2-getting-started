@@ -40,6 +40,7 @@
   "[ruby]":  {
 		"editor.formatOnSave": true
   },
+  "terminal.integrated.defaultProfile.linux": "bash",
   "vscode-erb-beautify.keepBlankLines": 1,
   "vscode-erb-beautify.bundlerPath": "/home/gitpod/.rvm/ruby-3.0.3/bin/bundler",
   "vscode-erb-beautify.useBundler": true,
